@@ -8,56 +8,43 @@
 </head>
 <body class="paper">
 	<div id="app">
-		<input type="number" v-model="number">
+		<h4>แม่สูตรคูณ<input type="number" v-model="number"></h4>
+		<h4>จำนวนแถว<input type="number" v-model="row"></h4>
 		<div class="space"></div>
 		<h3>ตารางสูตรคูณแม่ {{number}}</h3>
-		<h4 v-for="i in 12">{{number}} x {{i}} = {{cal(i)}}</h4>
+		<h5>สูตรคูณก่อนหน้า -> {{lasted}}</h5>
+		<h4 v-for="i in r">{{number}} x {{i}} = {{cal(i)}}</h4>
+		<h4>ผลรวม = {{sum(row)}}</h4>
 	</div>
 
 	<script>
 		let app = new Vue({
 			el: '#app',
 			data: {
-				number: 2
+				number: 2,
+				lasted: 1,
+				row: 12
 			},
 			methods: {
 				cal: function(row){
-					return this.number
+					return this.number*row
+				},
+				sum: function(row){
+					x = 0
+					for (var i = 0; i <= row; i++) {
+						x += this.number*i
+					}
+					return x
 				}
 			},
 			computed: {
-				x2: function () {
-					return this.number*2
-				},
-				x3: function () {
-					return this.number*3
-				},
-				x4: function () {
-					return this.number*4
-				},
-				x5: function () {
-					return this.number*5
-				},
-				x6: function () {
-					return this.number*6
-				},
-				x7: function () {
-					return this.number*7
-				},
-				x8: function () {
-					return this.number*8
-				},
-				x9: function () {
-					return this.number*9
-				},
-				x10: function () {
-					return this.number*10
-				},
-				x11: function () {
-					return this.number*11
-				},
-				x12: function () {
-					return this.number*12
+				r: function(){
+					return parseInt(this.row)
+				}
+			},
+			watch: {
+				number: function(a,b){
+					this.lasted = b
 				}
 			}
 		})
