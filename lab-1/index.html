@@ -11,18 +11,18 @@
 		<input type="number" v-model="number">
 		<div class="space"></div>
 		<h3>ตารางสูตรคูณแม่ {{number}}</h3>
-		<h4>{{number}} x 1 = {{number*1}}</h4>
-		<h4>{{number}} x 2 = {{number*2}}</h4>
-		<h4>{{number}} x 3 = {{number*3}}</h4>
-		<h4>{{number}} x 4 = {{number*4}}</h4>
-		<h4>{{number}} x 5 = {{number*5}}</h4>
-		<h4>{{number}} x 6 = {{number*6}}</h4>
-		<h4>{{number}} x 7 = {{number*7}}</h4>
-		<h4>{{number}} x 8 = {{number*8}}</h4>
-		<h4>{{number}} x 9 = {{number*9}}</h4>
-		<h4>{{number}} x 10 = {{number*10}}</h4>
-		<h4>{{number}} x 11 = {{number*11}}</h4>
-		<h4>{{number}} x 12 = {{number*12}}</h4>
+		<h4>{{number}} x 1 = {{number}}</h4>
+		<h4>{{number}} x 2 = {{x2}}</h4>
+		<h4>{{number}} x 3 = {{x3}}</h4>
+		<h4>{{number}} x 4 = {{x4}}</h4>
+		<h4>{{number}} x 5 = {{x5}}</h4>
+		<h4>{{number}} x 6 = {{x6}}</h4>
+		<h4>{{number}} x 7 = {{x7}}</h4>
+		<h4>{{number}} x 8 = {{x8}}</h4>
+		<h4>{{number}} x 9 = {{x9}}</h4>
+		<h4>{{number}} x 10 = {{x10}}</h4>
+		<h4>{{number}} x 11 = {{x11}}</h4>
+		<h4>{{number}} x 12 = {{x12}}</h4>
 	</div>
 
 	<script>
@@ -30,6 +30,41 @@
 			el: '#app',
 			data: {
 				number: 2
+			},
+			computed: {
+				x2: function () {
+					return this.number*2
+				},
+				x3: function () {
+					return this.number*3
+				},
+				x4: function () {
+					return this.number*4
+				},
+				x5: function () {
+					return this.number*5
+				},
+				x6: function () {
+					return this.number*6
+				},
+				x7: function () {
+					return this.number*7
+				},
+				x8: function () {
+					return this.number*8
+				},
+				x9: function () {
+					return this.number*9
+				},
+				x10: function () {
+					return this.number*10
+				},
+				x11: function () {
+					return this.number*11
+				},
+				x12: function () {
+					return this.number*12
+				}
 			}
 		})
 	</script>
