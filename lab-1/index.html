@@ -11,18 +11,7 @@
 		<input type="number" v-model="number">
 		<div class="space"></div>
 		<h3>ตารางสูตรคูณแม่ {{number}}</h3>
-		<h4>{{number}} x 1 = {{number}}</h4>
-		<h4>{{number}} x 2 = {{x2}}</h4>
-		<h4>{{number}} x 3 = {{x3}}</h4>
-		<h4>{{number}} x 4 = {{x4}}</h4>
-		<h4>{{number}} x 5 = {{x5}}</h4>
-		<h4>{{number}} x 6 = {{x6}}</h4>
-		<h4>{{number}} x 7 = {{x7}}</h4>
-		<h4>{{number}} x 8 = {{x8}}</h4>
-		<h4>{{number}} x 9 = {{x9}}</h4>
-		<h4>{{number}} x 10 = {{x10}}</h4>
-		<h4>{{number}} x 11 = {{x11}}</h4>
-		<h4>{{number}} x 12 = {{x12}}</h4>
+		<h4 v-for="i in 12">{{number}} x {{i}} = {{cal(i)}}</h4>
 	</div>
 
 	<script>
@@ -30,6 +19,11 @@
 			el: '#app',
 			data: {
 				number: 2
+			},
+			methods: {
+				cal: function(row){
+					return this.number
+				}
 			},
 			computed: {
 				x2: function () {
