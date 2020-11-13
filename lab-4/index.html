@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
 	<title>Color Game - Multimedia Programming 2563 ITKMITL</title>
@@ -10,26 +10,29 @@
 	<div id="canvas">
 		<section id="canvas_header">
 			<div>
-				เหลือเวลา 10 วินาที
+				เหลือเวลา {{time}} วินาที
 			</div>
 		</section>
 		<section id="canvas_main">
 			<main>
-				<a-dot></a-dot>
-				<a-dot></a-dot>
-				<a-dot></a-dot>
-				<a-dot></a-dot>
-				<a-dot></a-dot>
-				<a-dot style="--l:80%"></a-dot>
-				<a-dot data-pick="true"></a-dot>
-				<a-dot></a-dot>
-				<a-dot></a-dot>
+				<a-dot v-for="i in row*row"
+				:style="{
+				'--row':row,
+				'--h':h,
+				'--l':l+'%'
+			}"
+				:data-pick="i == pick"
+				@click="check(i)"
+				></a-dot>
 			</main>
 		</section>
 		<section id="canvas_footer">
 			<div>
-				0 คะแนน
+				{{score}} คะแนน
 			</div>
+		</section>
+		<section id="canvas_footer">
+			<button @click="restart" id="restart">RESTART</button>
 		</section>
 	</div>
 
@@ -48,12 +51,35 @@
 				row:2, //จำนวนแถวที่จะมีในรอบนี้
 				h:330, // hue ในรอบนี้
 				time:10, //เวลาเริ่มต้น
+				maxTime:10,//เวลาสูงสุดในเลเวลนี้
 				score:0, //คะแนนเริ่มต้น
 				pick:1, //หมายเลขวงกลมที่จะสีแตกต่างจากก้อนอื่นๆ
 				l:30,//ความสว่างของสีทั่วไปในรอบนี้
+				times:0,//กดไปกี่ครั้งแล้วในเลเวลนี้
 			},
 			methods: {
-
+				check: function(e){
+					console.log(e == this.pick)
+					console.log(this.times)
+					if (e == this.pick && this.time > 0) {
+						if (this.times == 2) {
+							this.row += 1
+							this.times = 0
+							this.time += 5
+							this.h = rand(1,360)
+						}
+						else {
+							this.times += 1
+						}
+						this.pick = rand(1,this.row*this.row)
+						this.score += 20
+					}
+					else if (e != this.pick && this.time > 0){
+						this.time -= 2
+						if(this.time < 0) {this.time = 0}
+						this.score -= 5
+					}
+				}
 			}
 		})
 		//ทำให้แคนวาสมี --picklight ตามที่กำหนดไว้ข้างบนนี้

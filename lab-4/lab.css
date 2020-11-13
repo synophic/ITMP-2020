@@ -27,6 +27,10 @@ body{
 	justify-content: center;
 	align-items: center;
 }
+#restart{
+	width: 6vw;
+	height: 4vh;
+}
 main{
 	width: 100%;
 	height: 100%;
