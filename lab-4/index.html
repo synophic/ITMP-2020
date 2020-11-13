@@ -51,7 +51,6 @@
 				row:2, //จำนวนแถวที่จะมีในรอบนี้
 				h:330, // hue ในรอบนี้
 				time:10, //เวลาเริ่มต้น
-				maxTime:10,//เวลาสูงสุดในเลเวลนี้
 				score:0, //คะแนนเริ่มต้น
 				pick:1, //หมายเลขวงกลมที่จะสีแตกต่างจากก้อนอื่นๆ
 				l:30,//ความสว่างของสีทั่วไปในรอบนี้
@@ -79,6 +78,14 @@
 						if(this.time < 0) {this.time = 0}
 						this.score -= 5
 					}
+				},
+				restart: function(){
+					this.row = 2
+					this.h = rand(1,360)
+					this.time = 10
+					this.score = 0
+					this.pick = rand(1,this.row*this.row)
+					this.times = 0
 				}
 			}
 		})
