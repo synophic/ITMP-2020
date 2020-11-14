@@ -84,9 +84,25 @@
 				 turn: function(x){
 				 	for(let i = 0; i < this.fruits.length; i++){
 				 		let fruit = this.fruits[i]
-				 		if (fruit.pst == 12 || fruit.pst == 14) {
+				 		if (fruit.pst == 12) {
 				 			fruit.pst = 0
 				 			fruit.run = false
+				 			if (fruit.type == 'red') {
+				 				this.score += 10
+				 			}
+				 			else {
+				 				this.score -= 20
+				 			}
+				 		}
+				 		else if (fruit.pst == 14) {
+				 			fruit.pst = 0
+				 			fruit.run = false
+				 			if (fruit.type == 'yellow') {
+				 				this.score += 10
+				 			}
+				 			else {
+				 				this.score -= 20
+				 			}
 				 		}
 				 		if (fruit.run) {
 				 			if (fruit.pst == 10 && this.isRightArrow == 1) {
