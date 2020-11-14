@@ -67,19 +67,24 @@ div.box{
 	background-color: #333;
 }
 .box._toggle{
+	background-image: url("arrow.png");
+	background-size: cover;
 	background-color: yellow;
 	transition: none;
 	opacity: .5;
+	transform: rotate(180deg);
 }
 .box._toggle[data-isrightarrow="0"]{
 	background-color: red;
+
+	transform: rotate(90deg);
 }
 
 
 .box._12{
 	background-color: red;
 }
-.box._16{
+.box._14{
 	background-color: yellow;
 }
 .box._path{
@@ -101,8 +106,9 @@ div.box{
 	border: 3px solid #fffc;
 	transform: scale(.6);
 }
-.box._fruit[data-type="11"]{
+.box._fruit[data-type="red"]{
 	background-color: red;
+	border-radius: 20%;
 }
 
 .box[data-pst="0"]{
@@ -161,7 +167,7 @@ div.box{
 	right:20%;
 	bottom:40%;
 }
-.box[data-pst="16"]{
+.box[data-pst="14"]{
 	right:0%;
 	bottom:40%;
 }
